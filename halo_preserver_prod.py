@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-https://svburger.com
+https://svburger.com/2021/01/16/halo-data-evolved/
 
 This script will gently scrape halo.bungie.net for a given gamertag's halo 2 or halo 3 data.
 
