@@ -10,13 +10,13 @@ There are 4 functions here:
 `halo2_get_files("GAMERTAG")`
 This loops over all the pages of game data for a given gamertag, produces a list of the game ids, then for each game id downloads the raw html file associated to it. That will allow data hoarders like me in the future to mine it for fun stats.
 
-`halo3_get_files("AI52487963")`
+`halo3_get_files("GAMERTAG")`
 This does the same thing, but for Halo 3's matchmaking and custom game lists only.
 
-`halo3_get_campaign_files("AI52487963")`
+`halo3_get_campaign_files("GAMERTAG")`
 This does the same thing, but specifically for Halo 3 campaign files, because the URL structure is slightly different.
 
-`halo3_main_stats_page("AI52487963")`
+`halo3_main_stats_page("GAMERTAG")`
 Finally this function will dump the raw html of the main stats page for a gamertag, since it's a decent aggregation page.
 
 
