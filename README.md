@@ -1,4 +1,6 @@
 # halo_preserver
+More info at https://svburger.com
+
 Python scripting to gently scrape halo.bungie.net and save a user's recorded game data for Halo 2 and Halo 3
 
 Halo.bungie.net was a great resource for checking your halo-related stats in the xbox 360 era. Years ago I'd always flock to https://halo.bungie.net/stats/halo3/careerstats.aspx?player=AI52487963 and check my stats because I was obsessed and had nothing better to do. Because it's planned to shut the halo data off in Feb 2021, this script will help preserve the raw html data to allow a user to mine the offline data afterwards.
