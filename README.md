@@ -1,5 +1,5 @@
 # halo_preserver
-More info at https://svburger.com
+More info at https://svburger.com/2021/01/16/halo-data-evolved/
 
 Python scripting to gently scrape halo.bungie.net and save a user's recorded game data for Halo 2 and Halo 3
 
