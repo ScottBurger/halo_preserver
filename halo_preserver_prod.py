@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 """
+https://svburger.com
+
 This script will gently scrape halo.bungie.net for a given gamertag's halo 2 or halo 3 data.
 
 The idea here is to grab the data associated with a user before the site's complete removal
