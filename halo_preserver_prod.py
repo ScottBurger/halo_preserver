@@ -5,7 +5,7 @@ https://svburger.com/2021/01/16/halo-data-evolved/
 This script will gently scrape halo.bungie.net for a given gamertag's halo 2 or halo 3 data.
 
 The idea here is to grab the data associated with a user before the site's complete removal
-of the data in Feb 2021. Once the raw html is downloaded, the local data can then be mined
+of the data on Feb 9 2021. Once the raw html is downloaded, the local data can then be mined
 to develop statistical measurements.
 """
 
