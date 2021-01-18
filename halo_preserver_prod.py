@@ -291,13 +291,56 @@ def halo3_get_campaign_files(gamertag):
         print("processing campaign id {}, {}/{} total games".format(i, j,len(halo3_campaign_ids_list)))
         j=j+1
     
+def halo3_get_heatmap_images(gamertag, inf=10, kills=True, individual_weapons=False, map_to_get='all'):
+    #gamertag = 'AI52487963'
+    #inf = 10
+    #kills=True        
+    #individual_weapons=True
     
+    if map=='all':
+        map_data = heatmap_df[heatmap_df['type']=='map']
+    else:
+        map_data = heatmap_df[heatmap_df['name']==map_to_get]
+        
+    
+    if kills==True and individual_weapons==False: # kills, all weapons
+        type_data = heatmap_df[heatmap_df['name']=='kills_all']
+    elif kills==True and individual_weapons==True: # kills, individual weapons
+        type_data = heatmap_df[heatmap_df['type']=='kill']
+    elif kills==False and individual_weapons==False: # deaths, all weapons
+        type_data = heatmap_df[heatmap_df['name']=='deaths_all']
+    elif kills==False and individual_weapons==True: # deaths, individual weapons
+        type_data = heatmap_df[heatmap_df['type']=='death']
+
+    
+    for i in range(0,map_data.shape[0]):
+        for j in range(0,type_data.shape[0]):
+                        
+            map_id = map_data['id'].iloc[i]
+            map_name = map_data['name'].iloc[i]
+            
+            type_id = type_data['id'].iloc[j]
+            type_name = type_data['name'].iloc[j]
+    
+            response = requests.get("https://halo.bungie.net/stats/Halo3/HeatMap.ashx?player={}&map={}&wep={}&inf={}".format(gamertag,map_id,type_id,inf))
+    
+            save_path = ''
+            name_of_file = '{}_halo3_heatmap_{}_{}_{}.png'.format(gamertag,map_name,type_name,inf)
+            print("saving {}".format(name_of_file))
+            complete_name = os.path.join(save_path, name_of_file)
+            file = open(complete_name,"wb")
+            file.write(response.content)
+            file.close()
+    
+            time.sleep(2)
     
 # halo2_get_files("AI52487963")
 # halo3_get_files("AI52487963")
 # halo3_get_campaign_files("AI52487963")
 # halo3_main_stats_page("AI52487963")
-    
+# halo3_get_heatmap_images("AI52489763") # all kills, all maps
+# halo3_get_heatmap_images("AI52487963", inf=1, kills=False, individual_weapons=True,map_to_get="the_pit")
+
     
 
 
