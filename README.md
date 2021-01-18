@@ -19,7 +19,7 @@ This does the same thing, but specifically for Halo 3 campaign files, because th
 `halo3_main_stats_page("GAMERTAG")`
 Finally this function will dump the raw html of the main stats page for a gamertag, since it's a decent aggregation page.
 
-`halo3_get_heatmap_images("GAMERTAG")
+`halo3_get_heatmap_images("GAMERTAG")`
 By default will get all kills for all maps at maximum heatmap influence. The larger the influence value, the bigger the heatmap cloud is. Some options here:
 * inf (default 10) - influence from 1 to 10. Influnce of 1 means individual kills or deaths will show up on the heatmap. 
 * kills (default True) - heatmap will display kills. Setting this to False means it shows deaths instead.
