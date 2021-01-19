@@ -28,7 +28,7 @@ By default will get all kills for all maps at maximum heatmap influence. The lar
 
 
 How to run from command line:
-python -c 'import halo_preserver_prod; halo_preserver_prod.FUNCTION()'
+`python -c 'import halo_preserver_prod; halo_preserver_prod.FUNCTION()'`
 
 ex:
-python -c 'import halo_preserver_prod; halo_preserver_prod.halo2_get_files("AI52487963")'
+`python -c 'import halo_preserver_prod; halo_preserver_prod.halo2_get_files("AI52487963")'`
