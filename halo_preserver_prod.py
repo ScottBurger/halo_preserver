@@ -312,7 +312,7 @@ def halo3_get_heatmap_images(gamertag, inf=10, kills=True, individual_weapons=Fa
     else:
         map_data = heatmap_df[heatmap_df['name']==map_to_get]
         
-    
+   
     if kills==True and individual_weapons==False: # kills, all weapons
         type_data = heatmap_df[heatmap_df['name']=='kills_all']
     elif kills==True and individual_weapons==True: # kills, individual weapons
