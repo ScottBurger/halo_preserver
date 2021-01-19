@@ -21,7 +21,7 @@ Finally this function will dump the raw html of the main stats page for a gamert
 
 `halo3_get_heatmap_images("GAMERTAG")`
 By default will get all kills for all maps at maximum heatmap influence. The larger the influence value, the bigger the heatmap cloud is. Some options here:
-* **inf (default 10)** - influence from 1 to 10. Influnce of 1 means individual kills or deaths will show up on the heatmap. 
+* **inf (default 10)** - influence from 1 to 10. Influnce of 1 means individual kills or deaths will show up on the heatmap. The default of 10 is the blobbiest of the settings.
 * **kills (default True)** - heatmap will display kills. Setting this to False means it shows deaths instead.
 * **individual_weapons (default False)** - this will push out heatmaps for each weapon individually. There are 51 items for it to iterate over for 24 maps, so be warned this step may take a while to fully pull.
 * **map_to_get (default all)** - by default will iterate over all maps to pull data, unless you enter a specific map name. Maps are lowercase with spaces replaced by underscores, no punctuation. Exact values can be found in the `heatmap_data` variable in the script.
