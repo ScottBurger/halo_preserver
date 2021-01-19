@@ -307,7 +307,7 @@ def halo3_get_heatmap_images(gamertag, inf=10, kills=True, individual_weapons=Fa
     #kills=True        
     #individual_weapons=True
     
-    if map=='all':
+    if map_to_get=='all':
         map_data = heatmap_df[heatmap_df['type']=='map']
     else:
         map_data = heatmap_df[heatmap_df['name']==map_to_get]
