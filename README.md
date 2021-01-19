@@ -25,3 +25,10 @@ By default will get all kills for all maps at maximum heatmap influence. The lar
 * **kills (default True)** - heatmap will display kills. Setting this to False means it shows deaths instead.
 * **individual_weapons (default False)** - this will push out heatmaps for each weapon individually. There are 51 items for it to iterate over for 24 maps, so be warned this step may take a while to fully pull.
 * **map_to_get (default all)** - by default will iterate over all maps to pull data, unless you enter a specific map name. Maps are lowercase with spaces replaced by underscores, no punctuation. Exact values can be found in the `heatmap_data` variable in the script.
+
+
+How to run from command line:
+python -c 'import halo_preserver_prod; halo_preserver_prod.FUNCTION()'
+
+ex:
+python -c 'import halo_preserver_prod; halo_preserver_prod.halo2_get_files("AI52487963")'
