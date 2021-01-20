@@ -8,7 +8,7 @@ Halo.bungie.net was a great resource for checking your halo-related stats in the
 Function examples:
 
 `halo2_get_files("GAMERTAG")`
-This loops over all the pages of game data for a given gamertag, produces a list of the game ids, then for each game id downloads the raw html file associated to it. That will allow data hoarders like me in the future to mine it for fun stats.
+This loops over all the pages of game data for a given gamertag, produces a list of the game ids, then for each game id downloads the raw html file associated to it. That will allow data hoarders like me in the future to mine it for fun stats. This takes 2 seconds per page of data and another 2 seconds per game ID, so it could take an hour or two if you have thousands of games played.
 
 `halo3_get_files("GAMERTAG")`
 This does the same thing, but for Halo 3's matchmaking and custom game lists only.
