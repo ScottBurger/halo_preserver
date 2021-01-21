@@ -7,19 +7,19 @@ Halo.bungie.net was a great resource for checking your halo-related stats in the
 
 # Function examples:
 
-`halo2_get_files("GAMERTAG")`
+`halo2_get_files('GAMERTAG')`
 This loops over all the pages of game data for a given gamertag, produces a list of the game ids, then for each game id downloads the raw html file associated to it. That will allow data hoarders like me in the future to mine it for fun stats. This takes 2 seconds per page of data and another 2 seconds per game ID, so it could take an hour or two if you have thousands of games played. This is intentionally slow so it doesn't overload the server.
 
-`halo3_get_files("GAMERTAG")`
+`halo3_get_files('GAMERTAG')`
 This does the same thing, but for Halo 3's matchmaking and custom game lists only.
 
-`halo3_get_campaign_files("GAMERTAG")`
+`halo3_get_campaign_files('GAMERTAG')`
 This does the same thing, but specifically for Halo 3 campaign files, because the URL structure is slightly different.
 
-`halo3_main_stats_page("GAMERTAG")`
+`halo3_main_stats_page('GAMERTAG')`
 Finally this function will dump the raw html of the main stats page for a gamertag, since it's a decent aggregation page.
 
-`halo3_get_heatmap_images("GAMERTAG")`
+`halo3_get_heatmap_images('GAMERTAG')`
 By default will get all kills for all maps at maximum heatmap influence. The larger the influence value, the bigger the heatmap cloud is. Some options here:
 * **inf (default 10)** - influence from 1 to 10. Influnce of 1 means individual kills or deaths will show up on the heatmap. The default of 10 is the blobbiest of the settings.
 * **kills (default True)** - heatmap will display kills. Setting this to False means it shows deaths instead.
@@ -34,7 +34,7 @@ By default will get all kills for all maps at maximum heatmap influence. The lar
 
 examples:
 get the raw html files (no images) for each halo 2 game for a given gamertag:
-`python -c "import halo_preserver_prod; halo_preserver_prod.halo2_get_files(\"AI52487963\")"`
+`python -c "import halo_preserver_prod; halo_preserver_prod.halo2_get_files('AI52487963')"`
 
 get the heatmap images for halo 3, showing deaths by individual weapons for the_pit map:
-`python -c "import halo_preserver_prod; halo_preserver_prod.halo3_get_heatmap_images(\"AI52487963\", kills=False, individual_weapons=True, map_to_get=\"the_pit\")"`
+`python -c "import halo_preserver_prod; halo_preserver_prod.halo3_get_heatmap_images('AI52487963', kills=False, individual_weapons=True, map_to_get='the_pit')"`
