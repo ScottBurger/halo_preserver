@@ -5,7 +5,7 @@ Python scripting to gently scrape halo.bungie.net and save a user's recorded gam
 
 Halo.bungie.net was a great resource for checking your halo-related stats in the xbox 360 era. Years ago I'd always flock to https://halo.bungie.net/stats/halo3/careerstats.aspx?player=AI52487963 and check my stats because I was obsessed and had nothing better to do. Because it's planned to shut the halo data off in Feb 2021, this script will help preserve the raw html data to allow a user to mine the offline data afterwards.
 
-Function examples:
+# Function examples:
 
 `halo2_get_files("GAMERTAG")`
 This loops over all the pages of game data for a given gamertag, produces a list of the game ids, then for each game id downloads the raw html file associated to it. That will allow data hoarders like me in the future to mine it for fun stats. This takes 2 seconds per page of data and another 2 seconds per game ID, so it could take an hour or two if you have thousands of games played. This is intentionally slow so it doesn't overload the server.
@@ -27,7 +27,7 @@ By default will get all kills for all maps at maximum heatmap influence. The lar
 * **map_to_get (default all)** - by default will iterate over all maps to pull data, unless you enter a specific map name. Maps are lowercase with spaces replaced by underscores, no punctuation. Exact values can be found in the `heatmap_data` variable in the script.
 
 
-How to run from command line:
+# How to run from command line:
 * Download the python script to a directory you want to have the files downloaded to.
 * Run the following in your command line:
 `python -c 'import halo_preserver_prod; halo_preserver_prod.FUNCTION()'`
