@@ -29,12 +29,12 @@ By default will get all kills for all maps at maximum heatmap influence. The lar
 
 # How to run from command line:
 * Download the python script to a directory you want to have the files downloaded to.
-* Run the following in your command line:
-`python -c 'import halo_preserver_prod; halo_preserver_prod.FUNCTION()'`
+* If you don't have the usual packages installed already, run: `python -m pip install requests pandas` first.
+* Run the following in your command line: `python -c "import halo_preserver_prod; halo_preserver_prod.FUNCTION()"`
 
 examples:
 get the raw html files (no images) for each halo 2 game for a given gamertag:
-`python -c 'import halo_preserver_prod; halo_preserver_prod.halo2_get_files("AI52487963")'`
+`python -c "import halo_preserver_prod; halo_preserver_prod.halo2_get_files(\"AI52487963\")"`
 
 get the heatmap images for halo 3, showing deaths by individual weapons for the_pit map:
-`python -c 'import halo_preserver_prod; halo_preserver_prod.halo3_get_heatmap_images("AI52487963", kills=False, individual_weapons=True, map_to_get="the_pit")'`
+`python -c "import halo_preserver_prod; halo_preserver_prod.halo3_get_heatmap_images(\"AI52487963\", kills=False, individual_weapons=True, map_to_get=\"the_pit\")"`
