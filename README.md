@@ -1,7 +1,7 @@
 # halo_preserver
 More info at https://svburger.com/2021/01/16/halo-data-evolved/
 
-Python scripting to gently scrape halo.bungie.net and save a user's recorded game data for Halo 2 and Halo 3
+Python scripting to gently scrape halo.bungie.net and save a user's recorded game data for Halo 2, Halo 3, and Halo Reach.
 
 Halo.bungie.net was a great resource for checking your halo-related stats in the xbox 360 era. Years ago I'd always flock to https://halo.bungie.net/stats/halo3/careerstats.aspx?player=AI52487963 and check my stats because I was obsessed and had nothing better to do. Because it's planned to shut the halo data off in Feb 2021, this script will help preserve the raw html data to allow a user to mine the offline data afterwards.
 
@@ -25,6 +25,16 @@ By default will get all kills for all maps at maximum heatmap influence. The lar
 * **kills (default True)** - heatmap will display kills. Setting this to False means it shows deaths instead.
 * **individual_weapons (default False)** - this will push out heatmaps for each weapon individually. There are 51 items for it to iterate over for 24 maps, so be warned this step may take a while to fully pull.
 * **map_to_get (default all)** - by default will iterate over all maps to pull data, unless you enter a specific map name. Maps are lowercase with spaces replaced by underscores, no punctuation. Exact values can be found in the `heatmap_data` variable in the script.
+
+`reach_career_stats('GAMERTAG')`
+This iterates over each permutation of [Summary, By Playlist, By Map, Medals, Weapons, Enemies] and [INVASION, ARENA, COMPETITIVE, CAMPAIGN, FIREFIGHT, CUSTOM] and downloads each main stat page's source code.
+
+`reach_overview('GAMERTAG')`
+This saves the Overview and Commendations pages.
+
+`reach_get_files('GAMERTAG')`
+This gets the page source code for each game id played by the supplied gamertag.
+
 
 
 # How to run from command line:
