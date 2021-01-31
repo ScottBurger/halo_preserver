@@ -469,7 +469,9 @@ def reach_get_files(gamertag):
 # halo3_main_stats_page("AI52487963")
 # halo3_get_heatmap_images("AI52489763") # all kills, all maps
 # halo3_get_heatmap_images("AI52487963", inf=1, kills=False, individual_weapons=True,map_to_get="the_pit")
-
+# reach_career_stats("AI52487963")
+# reach_overview("AI52487963")
+# reach_get_files("AI52487963")
     
 
 
