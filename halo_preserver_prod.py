@@ -344,6 +344,125 @@ def halo3_get_heatmap_images(gamertag, inf=10, kills=True, individual_weapons=Fa
     
             time.sleep(2)
     
+    
+    
+    
+   
+def reach_write(url, filename):
+    response = requests.get(url)
+    save_path = ''
+    name_of_file = filename
+    print("saving {}".format(filename))
+    complete_name = os.path.join(save_path, name_of_file)
+    file = open(complete_name,"wb")
+    file.write(response.content)
+    file.close
+    
+    time.sleep(2)
+            
+def reach_career_stats(gamertag):
+    """
+    gets the main stats pages for each permutation of stat type and drilldown.
+    note: playlist and enemies only have 2-3 drilldowns, so their downloaded
+    data might be empty or otherwise useless. in the interest of dev time im
+    keeping those permuatations in here...
+    """
+    
+    career_stats_list = ['default', 'playlists', 'maps', 'medals', 'weapons', 'enemies']
+    drilldown = ['invasion', 'arena', 'competitive', 'campaign', 'firefight', 'custom']
+    
+    for i in career_stats_list:
+        for j in range(1,7):
+            url = "https://halo.bungie.net/stats/reach/careerstats/{}.aspx?player={}&vc={}".format(i,gamertag,j)
+            filename = '{}_reach_career_stats_{}_{}.txt'.format(gamertag, i, drilldown[j-1])
+            reach_write(url, filename)
+         
+            
+            
+           
+        
+            
+def reach_overview(gamertag):
+    """
+    gets overview and commendations
+    """
+    overview_url = 'https://halo.bungie.net/Stats/Reach/default.aspx?player={}'.format(gamertag)
+    overview_filename = '{}_reach_service_record_overview.txt'.format(gamertag)
+    reach_write(overview_url, overview_filename)
+    
+    comm_url = 'https://halo.bungie.net/Stats/Reach/Commendations.aspx?player={}'.format(gamertag)
+    comm_filename = '{}_reach_service_record_commendations.txt'.format(gamertag)
+    reach_write(comm_url,comm_filename)
+    
+    
+        
+    
+def reach_game_ids(gamertag):
+    """
+    iterates through game history RSS 
+    and generates list of unique game ids
+    """
+    
+    #25 game ids per page
+    # href="/stats/reach/gamestats.aspx?gameid=775177128&amp;player=Naded"></a>
+    # https://halo.bungie.net/Stats/Reach/GameStats.aspx?gameid=873296322&player=Naded
+    
+    gamertag = 'naded'
+    game_ids_list = []
+    
+    num_before = 0
+    num_after = 1
+    
+    i=0
+    while num_before != num_after:
+        # i = 25
+        
+        # gamertag= 'naded'
+        
+        print("getting reach game id data for {} page {}".format(gamertag,i))
+        num_before = len(game_ids_list)
+        url = 'https://halo.bungie.net/stats/reach/rssgamehistory.ashx?vc=0&player={}&page={}'.format(gamertag,i)
+    
+        page_data = requests.get(url)
+        page_data_text = page_data.text
+        game_ids = re.findall('gameid=(.*)&amp',page_data_text)
+        game_ids_fix = list(set([i[0:9] for i in game_ids]))
+        
+        game_ids_list = list(set(game_ids_list + game_ids_fix))
+        num_after = len(game_ids_list)
+        time.sleep(2)
+        i = i+1
+        print("done! {} total game ids collected so far".format(num_after))
+        
+    return game_ids_list
+    
+    
+
+def reach_game_id_download(game_id,gamertag):
+    
+    reach_url = 'https://halo.bungie.net/Stats/Reach/GameStats.aspx?gameid={}&player={}'.format(game_id,gamertag)
+    filename = '{}_reach_game_{}.txt'.format(gamertag,game_id)
+    reach_write(reach_url,filename)
+    time.sleep(2)
+    
+    
+
+def reach_get_files(gamertag):
+    reach_game_ids_list = reach_game_ids(gamertag)
+    
+    j=1
+    for i in reach_game_ids_list:
+        print("processing reach game id {}, {}/{} total games".format(i,j,len(reach_game_ids_list)))
+        reach_game_id_download(i,gamertag)
+        j=j+1
+    
+    
+  
+    
+       
+    
+    
+ 
 # halo2_get_files("AI52487963")
 # halo3_get_files("AI52487963")
 # halo3_get_campaign_files("AI52487963")
