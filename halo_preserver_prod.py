@@ -404,7 +404,7 @@ def reach_game_ids(gamertag):
     # href="/stats/reach/gamestats.aspx?gameid=775177128&amp;player=Naded"></a>
     # https://halo.bungie.net/Stats/Reach/GameStats.aspx?gameid=873296322&player=Naded
     
-    gamertag = 'naded'
+    # gamertag = 'naded'
     game_ids_list = []
     
     num_before = 0
