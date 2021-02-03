@@ -163,7 +163,6 @@ def halo3_campaign_ids(gamertag):
    returns list of campaign game ids
    """
    
-
    camp_url = 'https://halo.bungie.net/stats/playercampaignstatshalo3.aspx?player={}'.format(gamertag)
    camp_data = requests.get(camp_url)
    camp_data_text = camp_data.text
@@ -178,25 +177,23 @@ def halo3_campaign_ids(gamertag):
       
    for i in range(1,camp_pages+1):
      
-      i = 1
       print("getting halo3 campaign game id data for {} page {}/{}".format(gamertag,i,camp_pages))
 
        #request page data
-      url = 'https://halo.bungie.net/stats/playercampaignstatshalo3.aspx?player={}&ctl00_mainContent_bnetpgl_recentgamesChangePage={}'.format(gamertag,i)
+      url = 'https://halo.bungie.net/stats/playercampaignstatshalo3.aspx?player={}&ctl00_mainContent_bnetpgl_recentgamesChangePage=10&ctl00_mainContent_bnetcppgl_recentgamesChangePage={}'.format(gamertag,i)
       page_data = requests.get(url)
       page_data_text = page_data.text
      
        #extract game ids from page
       game_ids = re.findall('gameid=(.*)&amp',page_data_text)
       h3_camp_game_ids = h3_camp_game_ids + game_ids
+      h3_camp_game_ids_unique = list(set(h3_camp_game_ids))
       
       time.sleep(2) # to not overload HBN with response calls
    
       print("done!")
-      
-      
 
-   return h3_camp_game_ids
+   return h3_camp_game_ids_unique
     
     
     
